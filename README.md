@@ -1,77 +1,89 @@
-☁️ Previsão do Tempo com API ClimaTempo + Envio por E-mail
-Este projeto Python permite consultar a previsão do tempo para os próximos 15 dias usando a API do ClimaTempo, com opção de envio automático por e-mail.
+# ☁️ Clima Tempo - Previsão do Tempo + Envio por E-mail
 
-📦 Funcionalidades
-Consulta de cidade e obtenção do ID via API
+Projeto em Python que utiliza a **API do ClimaTempo** para consultar a previsão do tempo dos próximos 15 dias e enviar o relatório por **e-mail automaticamente**.
 
-Previsão completa para os próximos 15 dias:
+---
 
-Temperatura máxima e mínima
+## 📌 Funcionalidades
 
-Probabilidade de chuva e precipitação
+- 🔍 Pesquisa de cidade e ID via API
+- 📆 Previsão para os próximos 15 dias:
+  - 🌡️ Temperatura máxima e mínima
+  - 🌧️ Probabilidade de chuva e precipitação
+  - 🌞 Índice UV com classificação de risco
+  - 📝 Descrição do clima em português
+- 📧 Envio automático da previsão por e-mail
 
-Índice UV e nível de risco
+---
 
-Descrição do clima
+## 🛠️ Requisitos
 
-Envio automático do relatório por e-mail
+- Python 3.x
+- Biblioteca `requests` (instalável via `pip`)
+- Conta no [ClimaTempo API](https://advisor.climatempo.com.br/)
+- Conta de e-mail (recomendado: Gmail)
 
-🔧 Pré-requisitos
-Python 3.x
+---
 
-Conta no ClimaTempo API
+## 🚀 Como Usar
 
-Conta de e-mail (de preferência Gmail)
+### 1. Clonar o Repositório
 
-📥 Instalação
-Clone o repositório:
+git clone https://github.com/RodrigoBuen/Clima-Tempo.git
+cd Clima-Tempo
 
-bash
-Copiar
-Editar
-git clone https://github.com/seu-usuario/previsao-tempo-email.git
-cd previsao-tempo-email
-Instale as dependências:
+---
 
-bash
-Copiar
-Editar
+### 2. Instalar Dependência
 pip install requests
-🔑 Configuração
-Edite os seguintes campos no seu código:
 
-python
-Copiar
-Editar
-token = "Seu Token do clima tempo"
-id_cidade = "Id da cidade"
+---
 
-# Configurações de e-mail
-self.server.login("Email Login", "Senha do seu email")
-"Seu email",
-"Email do destinario"
-Para descobrir o ID da cidade, defina pesquisa_cidade = True e execute o script.
+### 3. Configurar Token e ID da Cidade
+Abra o arquivo .py e configure:
 
-▶️ Como Usar
-1. Buscar o ID da cidade (opcional)
-Defina pesquisa_cidade = True e execute o script:
+- token = "SEU_TOKEN"
+- id_cidade = "ID_DA_CIDADE"
+- Você pode obter o ID da cidade executando o código com pesquisa_cidade = True.
 
-bash
-Copiar
-Editar
-python app.py
-Digite o nome da cidade e copie o ID desejado.
+---
 
-2. Executar previsão do tempo
-Altere pesquisa_cidade = False e defina o ID da cidade. Execute novamente:
+### 4. Configurar Envio por E-mail
+Substitua os campos do método send_email com seus dados de e-mail:
 
-bash
-Copiar
-Editar
-python app.py
-A previsão será exibida no terminal e enviada por e-mail.
+- self.server.login("seu_email@gmail.com", "sua_senha")
+- "seu_email@gmail.com",
+- "destinatario@gmail.com"
+- ⚠️ Use uma senha de aplicativo no Gmail para maior segurança.
 
-🛡️ Observações de Segurança
-Evite colocar senhas diretamente no código. Use variáveis de ambiente ou arquivos .env (veja bibliotecas como python-dotenv).
+---
 
-Ative a autenticação de dois fatores no Gmail e crie senhas de app se necessário.
+🖼️ Exemplo de Saída
+
+- data: 20/05/2025
+- chuva: 80% - 10mm
+- temperatura: 28° max - 19° min
+- indice uv: 9.3 (Risco Muito Alto)
+- Parcialmente nublado com pancadas de chuva
+
+---
+
+🧪 Testar o Programa
+Para buscar o ID de uma cidade:
+
+- pesquisa_cidade = True
+- Para obter a previsão e enviar por e-mail:
+
+- pesquisa_cidade = False
+- Execute com:
+python nome_do_arquivo.py
+
+---
+
+🔐 Segurança
+- Evite deixar senhas no código. Use variáveis de ambiente ou um arquivo .env.
+
+- Use senhas de aplicativo do Gmail se tiver autenticação em 2 etapas.
+
+📄 Licença
+- Este projeto está sob a licença MIT.
